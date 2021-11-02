@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="SHORTCUT ICON" href="favicon.ico" />
+        <title>poleguy.com</title>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="author" content="Nicholas Dietz" />
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+
+
+        <link href="styles.css" type="text/css" rel="stylesheet" />
+        <link href="PhotoSwipe/photoswipe.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="PhotoSwipe/lib/klass.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="PhotoSwipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+        <script type="text/javascript">
+          //https://stackoverflow.com/questions/29044852/preloading-images-in-html
+          urls =                          [
+              { url: 'images/poleguy_logo.jpg', caption: 'Say Hi to The Pole Guy'},
+              { url: "images/0923211637.jpg", caption : "Generation Two, Carmen Dietz 2021, St Procopius School, Chicago"},
+              { url: "images/IMAG1636.jpg", caption : "Davy Dietz, September, 2012, Chicago"},
+              { url: "images/IMAG1637.jpg", caption : "Davy Dietz, September, 2012, Chicago"},
+              { url: "images/P1100487.JPG", caption : "Maker Faire, Detroit, 2013"},
+              { url: "images/P1100488.JPG", caption : "Maker Faire, Detroit, 2013"},
+              { url: "images/IMG_5194.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5193.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5192.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5191.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5190.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5189.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5188.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5187.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_5186.jpg", caption : "Carmen with help from Dad, July, 2011"}, 
+              { url: "images/IMG_4913.jpg", caption : "Windmills, Illinois?, 2011"}, 
+              { url: "images/IMG_4914.jpg", caption : "Windmills, 2011"}, 
+              { url: "images/IMG_4915.jpg", caption : "Windmills, 2011"}, 
+              { url: "images/pole%20guy%20and%20his%20bride.jpg", caption : "Getting Hitched"},
+              { url: "images/2005,%20Guest%20Artist/Dave%20Rusinak.jpg", caption : "David Rusinak, Undisclosed Location, 2005"},
+              { url: "images/2002/ireland.jpg", caption : "Ireland, 2002"},
+              { url: "images/2013/IMAG1981.jpg", caption : "At the Tot Lot, Oak Park, Illinois"},
+              { url: "images/2020/0908201930g.jpg", caption : "Simon and Dad at Georgetown Waterfront Park"},
+              { url: "images/2006, East Coast Trip/White House.JPG", caption : "White House"},
+              
+              { url: "images/2006, East Coast Trip/DC Subway 1.JPG", caption : "DC Subway"},
+              { url: "images/2006, East Coast Trip/DC Washington Memorial 1.JPG", caption : "DC Washington Memorial"},
+              
+              { url: "images/2006, East Coast Trip/Boston.JPG", caption : "Boston"},
+              { url: "images/2006, East Coast Trip/Notre Dame.JPG", caption : "Notre Dame"},
+              { url: "images/2006, East Coast Trip/Harvard 2.JPG", caption : "Harvard"},
+              { url: "images/2006, East Coast Trip/DC Subway 2.JPG", caption : "DC Subway"},
+              { url: "images/2006, East Coast Trip/Yale No Standing.JPG", caption : "Yale, No Standing"},
+              { url: "images/2006, East Coast Trip/DC Washington Memorial 3.JPG", caption : "DC Washington Memorial"},
+              { url: "images/2006, East Coast Trip/DC Washington Memorial 2.JPG", caption : "DC Washington Memorial"},
+              { url: "images/2006, East Coast Trip/DC Washington Memorial 4.JPG", caption : "DC Washington Memorial"},
+              { url: "images/2006, East Coast Trip/Harvard 1.JPG", caption : "Harvard"},
+              { url: "images/2006, East Coast Trip/Notre Dame 2.JPG", caption : "Notre Dame"},
+              { url: "images/2006, East Coast Trip/Yale.JPG", caption : "Yale"},
+              
+              { url: "images/2015, Washington DC/2015-09-24 15.44.53.jpg", caption : "Visiting Horses on Poles in Philidelphia (visiting the pope)"},
+              { url: "images/2013/IMAG2142.jpg", caption : "Carmen helps Poleguy at Milwaukee Fest"},
+              { url: "images/2011/IMG_5611.JPG", caption : "Carmen and Daddy visit Mickey Mouse"},
+              { url: "images/2011/IMG_5612.JPG", caption : "Carmen and Daddy vist Mickey Mouse"},
+              { url: "images/2009/IMG_1944.JPG", caption : "Niagara Falls"},
+              { url: "images/2009/IMG_1944-1.JPG", caption : "Niagara Falls"},
+              { url: "images/2009/IMG_1938.JPG", caption : "Niagara Falls"},
+              { url: "images/2009/IMG_1941.JPG", caption : "Niagara Falls"},
+              { url: "images/2009/IMG_1959.JPG", caption : "With Barbara in Toronto"},
+              { url: "images/2009/IMG_2220.jpg", caption : "With Wendy in Chicago"},
+              { url: "images/2009/IMG_2222.jpg", caption : "With Wendy in Chicago"},
+              { url: "images/2009/IMG_2334.JPG", caption : "Lake Geneva, WI, for our anniversary."},
+              { url: "images/2009/IMG_2336.JPG", caption : "Lake Geneva, WI, for our anniversary."},
+              { url: "images/2009/IMG_2764.JPG", caption : "Christmas in Florida"},
+              { url: "images/2009/IMG_2765.JPG", caption : "Christmas in Florida"},
+              { url: "images/2010/IMG_3935.JPG", caption : "Anacortes, WA for Dan and Erin's wedding."},
+              { url: "images/2010/IMG_3936.JPG", caption : "Anacortes, WA for Dan and Erin's wedding."},
+              { url: "images/2010/IMG_3961.JPG", caption : "Anacortes, WA for Dan and Erin's wedding."},
+              { url: "images/2008/IMG_0583.jpg", caption : "Santo Domingo, DR"},
+              { url: "images/2008/IMG_1462.JPG", caption : "San Francisco, CA"},
+              { url: "images/2008/IMG_1463.JPG", caption : "San Francisco, CA"},
+              { url: "images/2008/IMG_1525.JPG", caption : "Florida"},
+              { url: "images/2008/IMG_1526.JPG", caption : "Florida"},
+              { url: "images/2008/IMG_6331.JPG", caption : "St Clement's Church, on way to Taco Burrito Palace with Oscar"},
+              { url: "images/2008/IMG_6890.JPG", caption : "Halsted in Chicago with the family."},
+              { url: "images/2008/IMG_7070.JPG", caption : "St Clement's Church, for wedding rehearsal."},
+              { url: "images/2008/cordero_dietz  1386.jpg", caption : "St Clement's Church, Just Married."},
+              { url: "images/2007/IMG_5707.JPG", caption : "Ana Rosales' wedding in Brooklyn, NY"},
+              { url: "images/2007/IMG_5806.JPG", caption : "NYC with Oron and Beth"},
+              { url: "images/2007/IMG_5807.JPG", caption : "NYC with Oron and Beth"},
+              { url: "images/2007/IMG_5825.JPG", caption : "Margie's Candies, Chicago, with Hitesh, and Kate."},
+              { url: "images/2006/IMG_4300.JPG", caption : "Poleguy fails at Harvard"},
+              { url: "images/2006/IMG_4302.JPG", caption : "Success at Harvard"},
+              { url: "images/2005/IMG_3198.JPG", caption : "Bunker Hill, Boston, MA"},
+              { url: "images/2006/IMG_4264.JPG", caption : "Yale"},
+              { url: "images/2006/IMG_4268.JPG", caption : "Yale"},
+              { url: "images/2006/IMG_4269.JPG", caption : "Yale"},
+              { url: "images/2006/IMG_4270.JPG", caption : "Yale"},
+              { url: 'images/2008,%20Santo%20Domingo,%20DR/IMG_0478.jpg', caption: '2008, Santo Domingo 1'},
+              { url: "images/2008,%20Santo%20Domingo,%20DR/IMG_0479.jpg", caption : "2008, Santo Domingo 2"},
+              { url: "images/1996,%20New%20Orleans,%20LA/New_Orleans_1996.jpg", caption : "New Orleans, Sophomore year, 1996. One of my oldest, and favorite Poleguy pictures... thanks to Sarah, Megan, and Pete, who made it possible."},
+              { url: "images/1999,%20Disney%20World/fl-int75.jpg", caption : "Rest stop in Florida on the way to Disney World with Mark Hege and Friends."},
+              { url: "images/1999,%20Disney%20World/fl-bk.jpg", caption : "Burger King drive thru... fine, Have It Your Way."},
+              { url: "images/1999,%20Disney%20World/fl-mark-pg-int75.jpg", caption : "Mark Hege is clearly a better Pole Guy than I."},
+              { url: "images/1999,%20Kankakee,%20IL/energizer-99.jpg", caption : "Pole Guy on Retreat in Kankakee Illinois, 1999. Care Of Jose Gonzalez. (David Rodriguez has a picture that might be better, taken after I let go with the both arms... maybe I'll get that some day.) "},
+              { url: "images/1999,%20Southern%20California/so-cali-success-jan1999.jpg", caption : "Here's an old one from when my hair was long. Southern California beach. This was in January after we got stuck in California after my cousin George's wedding. There was a snow storm that closed O'Hare."},
+              { url: "images/1999,%20Southern%20California/so-cali-jan1999.jpg", caption : "Attempt number one... Southern California Jan 1999 "},
+              { url: "images/2000,%20Chicago,%20IL/cta1.jpg", caption : "Chicago CTA Green Line."},
+              { url: "images/2000,%20Chicago,%20IL/cta2.jpg", caption : "Chicago CTA Green Line. After Air and Water Show, 2000."},
+              { url: "images/2000,%20Chicago,%20IL/cta3.jpg", caption : "Notice in this one that the guy on the opposite platform has noticed The Pole Guy."},
+              { url: "images/2000,%20Cleveland,%20OH/ohio1.jpg", caption : "Near Cleveland Ohio. Winter 2000. The Pole Guy tests his gloves."},
+              { url: "images/2000,%20Cleveland,%20OH/ohio2.jpg", caption : "The Pole Guy going way past horizontal in Cleveland."},
+              { url: "images/2001,%20Detroit,%20MI/troy-terry1.jpg", caption : "Troy, MI, 2001. Terry's first attempt at trying to be the Poleguy. Interesting technique."},
+              { url: "images/2001,%20Detroit,%20MI/troy-pg1.jpg", caption : "Troy Michigan. Poleguy shows how it's done."},
+              { url: "images/2001,%20Detroit,%20MI/troy-terry2.jpg", caption : "Terry tries again..."},
+              { url: "images/2001,%20Great%20Train%20Trip%20West/seattle-w-watchers.jpg", caption : "Thanks Cindy for inviting us to stay with you in Seattle. This was part of a two week train trip across the US and Canada that George, Jamie, Molly, Dorothy and I went on."},
+              { url: "images/2001,%20Great%20Train%20Trip%20West/san_fran_lookout.jpg", caption : "San Francisco at the lookout."},
+              { url: "images/2001,%20Great%20Train%20Trip%20West/san_fran_station_maybe.jpg", caption : "Can somebody identify this one? I think it might be the San Francisco train station. This was taken during our two week train tour of the US."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/grand-canyon-sitting1.jpg", caption : "There really weren't many poles out here."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/grand-canyon-tree.jpg", caption : "I didn't think I could find a pole at the Grand Canyon, so I tried a bunch of trees until I found a good dead one where I could get a grip."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/grand-canyon-pole1.jpg", caption : "This is my second attempt at the only pole I could find at the Grand Canyon. I got it, but there really isn't much room for leverage on this pole."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/grand-canyon-pole2.jpg", caption : "This is my second attempt at the only pole I could find at the Grand Canyon. I got it, but there really isn't much room for leverage on this pole."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/sedona-sitting.jpg", caption : "Poleguy was a little bummed that there weren't more poles."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/sedona-hole.jpg", caption : "In Sedona there aren't a lot of poles, but there are some holes."},
+              { url: "images/2002,%20Grand%20Canyon,%20Sedona,%20AZ/sedona.jpg", caption : "Pole Guy in a suit and tie in beautiful Sedona, AZ."},
+              { url: "images/2002,%20San%20Diego,%20Company%20Business/SanDiego.jpg", caption : "Thanks, Micah, for this last minute shot."},
+              { url: "images/2002,%20San%20Diego,%20Company%20Business/conexant.jpg", caption : "Poleguy at Conexant Offices in San Diego... That pole has a sign just at the wrong height."},
+              { url: "images/2002,%20San%20Diego,%20Company%20Business/conexant2.jpg", caption : "If the Conexant sign weren't there this would have been easier... maybe I should go back now that the offices are closed."}
+          ];
+
+
+function preloadImages(paths, callback) {
+    var images = [];
+    var loaded = 0;
+    paths.forEach(function (path) {
+        var img = new Image();
+        img.src = path.url;
+        img.onload = onImagePreloaded;
+        images.push(img);
+    });
+
+
+    function onImagePreloaded() {
+        loaded++;
+        if (loaded === paths.length && callback) {
+             callback(images);
+        }
+    }
+        }
+
+</script>
+
+        <script type="text/javascript">
+         (function(window, $, PhotoSwipe){
+             $(document).ready(function(){
+                 preloadImages(urls);
+                 var options = {preventHide: true,
+                                autoStartSlideshow: true,
+                                slideshowDelay: 1500,
+                                getImageSource: function(obj){
+                                    return obj.url;
+                                },
+                                getImageCaption: function(obj){
+                                    return obj.caption;
+                                }
+                 },
+                     instance = PhotoSwipe.attach(
+                         urls,
+                         options
+                     );
+                 instance.show(0);
+             });
+         }(window, window.jQuery, window.Code.PhotoSwipe));
+         window.addEventListener("load", function() { setTimeout(loaded, 100) }, false);
+         function loaded() {
+             document.getElementById("poleguy").style.visibility = "visible";
+             window.scrollTo(0, 1); // pan to the bottom, hides the location bar
+         }
+        </script>
+    </head>
+    <body>
+        <div id="poleguy"> poleguy.com </div>
+    </body>
+</html>
+
+<!--
+images
+images/2003, England Trip
+images/2003, England Trip/England_034.jpg
+images/2003, England Trip/England_003.jpg
+images/2003, England Trip/England_024.jpg
+images/2003, England Trip/England_026.jpg
+images/2003, England Trip/Thumbs.db
+images/2013
+images/2013/IMAG1981.jpg
+images/2013/IMAG2142.jpg
+images/1999, Southern California
+images/1999, Southern California/so-cali-success-jan1999.jpg
+images/1999, Southern California/Thumbs.db
+images/1999, Southern California/so-cali-jan1999.jpg
+images/2008
+images/2008/IMG_0583.jpg
+images/2008/IMG_1526.JPG
+images/2008/IMG_1463.JPG
+images/2008/cordero_dietz  1386.jpg
+images/2008/IMG_7070.JPG
+images/2008/IMG_6890.JPG
+images/2008/IMG_6331.JPG
+images/2008/IMG_1525.JPG
+images/2008/Thumbs.db
+images/2008/IMG_1462.JPG
+images/2004, Chicago, IL
+images/2004, Chicago, IL/Chicago Fire, Soldier Field.jpg
+images/2004, Chicago, IL/US Cellular Field, Marlins vs Expos, September 2004.JPG
+images/2004, Chicago, IL/Thumbs.db
+images/2020
+images/2020/0908201930g.jpg
+images/2011
+images/2011/IMG_4912.jpg
+images/2011/IMG_5611.JPG
+images/2011/IMG_4913.jpg
+images/2011/IMG_5612.JPG
+images/2011/IMG_4915.jpg
+images/2011/IMG_5193.jpg
+images/2011/IMG_5187.jpg
+images/2011/IMG_4914.jpg
+images/2011/IMG_5192.jpg
+images/2011/Thumbs.db
+images/2011/IMG_5186.jpg
+images/2011/IMG_5194.jpg
+images/2001, Great Train Trip West
+images/2001, Great Train Trip West/so-cali-success-jan1999.jpg
+images/2001, Great Train Trip West/san_fran_station_maybe.jpg
+images/2001, Great Train Trip West/san_fran_lookout.jpg
+images/2001, Great Train Trip West/seattle-w-watchers.jpg
+images/2001, Great Train Trip West/Thumbs.db
+images/2001, Great Train Trip West/southern_cali_beach.jpg
+images/2001, Great Train Trip West/so-cali-jan1999.jpg
+images/pole guy and his bride.jpg
+images/2000, San Francisco, CA
+images/2000, San Francisco, CA/square-poleguy.JPG
+images/2000, San Francisco, CA/sf.jpg
+images/2000, San Francisco, CA/Thumbs.db
+images/2000, Wisconsin, Pilgimage
+images/2000, Wisconsin, Pilgimage/wisconsin.jpg
+images/2000, Wisconsin, Pilgimage/Thumbs.db
+images/2002, Ireland Trip
+images/2002, Ireland Trip/Ireland_089.JPG
+images/2002, Ireland Trip/Ireland_001.JPG
+images/2002, Ireland Trip/Ireland_059.JPG
+images/2002, Ireland Trip/Thumbs.db
+images/2002, Ireland Trip/Ireland_036.JPG
+images/2005, Guest Artist
+images/2005, Guest Artist/Dave Rusinak.jpg
+images/2005, Guest Artist/Thumbs.db
+images/2003, Chicago, IL
+images/2003, Chicago, IL/Leg Room, December 2003.JPG
+images/2003, Chicago, IL/Thumbs.db
+images/2002, Grand Canyon, Sedona, AZ
+images/2002, Grand Canyon, Sedona, AZ/grand-canyon-pole4.jpg
+images/2002, Grand Canyon, Sedona, AZ/grand-canyon-sitting1.jpg
+images/2002, Grand Canyon, Sedona, AZ/sedona.jpg
+images/2002, Grand Canyon, Sedona, AZ/grand-canyon-tree.jpg
+images/2002, Grand Canyon, Sedona, AZ/grand-canyon-pole3.jpg
+images/2002, Grand Canyon, Sedona, AZ/sedona-hole.jpg
+images/2002, Grand Canyon, Sedona, AZ/grand-canyon-pole1.jpg
+images/2002, Grand Canyon, Sedona, AZ/sedona-sitting.jpg
+images/2002, Grand Canyon, Sedona, AZ/Thumbs.db
+images/2002, Grand Canyon, Sedona, AZ/grand-canyon-pole2.jpg
+images/2004, New Years Eve, Juarez, Mexico
+images/2004, New Years Eve, Juarez, Mexico/IMG_1150.jpg
+images/2004, New Years Eve, Juarez, Mexico/Thumbs.db
+images/2005, Wrigley Chicago
+images/2005, Wrigley Chicago/Metro.jpg
+images/2005, Wrigley Chicago/Thumbs.db
+images/2000, Cleveland, OH
+images/2000, Cleveland, OH/ohio1.jpg
+images/2000, Cleveland, OH/ohio2.jpg
+images/2000, Cleveland, OH/Thumbs.db
+images/poleguy_logo.png
+images/1996, New Orleans, LA
+images/1996, New Orleans, LA/New_Orleans_1996.jpg
+images/1996, New Orleans, LA/Thumbs.db
+images/2010
+images/2010/.picasa.ini
+images/2010/IMG_3936.JPG
+images/2010/IMG_3935.JPG
+images/2010/IMG_3961.JPG
+images/2010/Thumbs.db
+images/2006, East Coast Trip
+images/2006, East Coast Trip/White House.JPG
+images/2006, East Coast Trip/DC Subway 1.JPG
+images/2006, East Coast Trip/DC Washington Memorial 1.JPG
+images/2006, East Coast Trip/Boston.JPG
+images/2006, East Coast Trip/Notre Dame.JPG
+images/2006, East Coast Trip/Harvard 2.JPG
+images/2006, East Coast Trip/DC Subway 2.JPG
+images/2006, East Coast Trip/Yale No Standing.JPG
+images/2006, East Coast Trip/DC Washington Memorial 3.JPG
+images/2006, East Coast Trip/DC Washington Memorial 2.JPG
+images/2006, East Coast Trip/DC Washington Memorial 4.JPG
+images/2006, East Coast Trip/Harvard 1.JPG
+images/2006, East Coast Trip/Thumbs.db
+images/2006, East Coast Trip/Notre Dame 2.JPG
+images/2006, East Coast Trip/Yale.JPG
+images/2005, Batopilas, Chihuahua, Mexico
+images/2005, Batopilas, Chihuahua, Mexico/IMG_1511.jpg
+images/2005, Batopilas, Chihuahua, Mexico/IMG_1447.jpg
+images/2005, Batopilas, Chihuahua, Mexico/Thumbs.db
+images/1999, Disney World
+images/1999, Disney World/fl-int75.jpg
+images/1999, Disney World/fl-mark-pg-int75.jpg
+images/1999, Disney World/Thumbs.db
+images/1999, Disney World/fl-bk.jpg
+images/2005
+images/2005/IMG_3198.JPG
+images/2005/Thumbs.db
+images/2007
+images/2007/.picasa.ini
+images/2007/IMG_5806.JPG
+images/2007/IMG_5807.JPG
+images/2007/IMG_5825.JPG
+images/2007/IMG_5707.JPG
+images/2007/Thumbs.db
+images/1999, Kankakee, IL
+images/1999, Kankakee, IL/energizer-99.jpg
+images/1999, Kankakee, IL/Thumbs.db
+images/2000, Colorado, Company Business
+images/2000, Colorado, Company Business/boulder-2000.jpg
+images/2000, Colorado, Company Business/union-station-denver-2000.jpg
+images/2000, Colorado, Company Business/Thumbs.db
+images/2002, San Diego, Company Business
+images/2002, San Diego, Company Business/SanDiego.jpg
+images/2002, San Diego, Company Business/conexant2.jpg
+images/2002, San Diego, Company Business/Thumbs.db
+images/2002, San Diego, Company Business/conexant.jpg
+images/2004, Oak Park, Garage Demolition
+images/2004, Oak Park, Garage Demolition/IMG_0413.jpg
+images/2004, Oak Park, Garage Demolition/slides
+images/2004, Oak Park, Garage Demolition/slides/IMG_0411.html
+images/2004, Oak Park, Garage Demolition/slides/IMG_0412.html
+images/2004, Oak Park, Garage Demolition/slides/IMG_0413.html
+images/2004, Oak Park, Garage Demolition/slides/IMG_0412-orig.html
+images/2004, Oak Park, Garage Demolition/slides/IMG_0413-orig.html
+images/2004, Oak Park, Garage Demolition/slides/IMG_0411-orig.html
+images/2004, Oak Park, Garage Demolition/IMG_0411.jpg
+images/2004, Oak Park, Garage Demolition/thumbs
+images/2004, Oak Park, Garage Demolition/thumbs/IMG_0413.jpg
+images/2004, Oak Park, Garage Demolition/thumbs/IMG_0411.jpg
+images/2004, Oak Park, Garage Demolition/thumbs/IMG_0412.jpg
+images/2004, Oak Park, Garage Demolition/Thumbs.db
+images/2004, Oak Park, Garage Demolition/IMG_0412.jpg
+images/2001, Detroit, MI
+images/2001, Detroit, MI/troy-terry1.jpg
+images/2001, Detroit, MI/troy-terry2.jpg
+images/2001, Detroit, MI/Thumbs.db
+images/2001, Detroit, MI/troy-pg1.jpg
+images/2009
+images/2009/IMG_1944.JPG
+images/2009/IMG_2222.jpg
+images/2009/IMG_2220.jpg
+images/2009/IMG_2765.JPG
+images/2009/IMG_1941.JPG
+images/2009/IMG_2336.JPG
+images/2009/IMG_1938.JPG
+images/2009/IMG_1959.JPG
+images/2009/IMG_1944-1.JPG
+images/2009/IMG_2334.JPG
+images/2009/IMG_2764.JPG
+images/2009/Thumbs.db
+images/2006
+images/2006/.picasa.ini
+images/2006/IMG_4264.JPG
+images/2006/IMG_4269.JPG
+images/2006/IMG_4300.JPG
+images/2006/IMG_4270.JPG
+images/2006/IMG_4268.JPG
+images/2006/IMG_4302.JPG
+images/2006/Thumbs.db
+images/2015, Washington DC
+images/2015, Washington DC/2015-09-24 15.44.53.jpg
+images/2000, Chicago, IL
+images/2000, Chicago, IL/cta2.jpg
+images/2000, Chicago, IL/cta3.jpg
+images/2000, Chicago, IL/cta1.jpg
+images/2000, Chicago, IL/Thumbs.db
+images/poleguy_logo.jpg
+images/Thumbs.db
+images/2005, El Paso, Texas
+images/2005, El Paso, Texas/IMG_1567.jpg
+images/2005, El Paso, Texas/Thumbs.db
+images/2008, Santo Domingo, DR
+images/2008, Santo Domingo, DR/IMG_0479.jpg
+images/2008, Santo Domingo, DR/IMG_0478.jpg
+images/2008, Santo Domingo, DR/Thumbs.db
+-->
